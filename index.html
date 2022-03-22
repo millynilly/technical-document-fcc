@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+    <head>
+        <title>HTML document layouts</title>
+	    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;1,300&family=Nova+Mono&family=Spartan&family=Syne+Mono&display=swap" rel="stylesheet">
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    </head>
+
+
+    <body>       
+        <nav id="navbar">
+            <header><title>HTML Document Layouts</title></header>
+            <ul>
+                <li><a class="nav-link" href="#introduction">Introduction</a></li>
+                <li><a class="nav-link" href="#css_frameworks">CSS frameworks</a></li>
+                <li><a class="nav-link" href="#css_float">CSS float</a></li>
+                <li><a class="nav-link" href="#css_flexbox">CSS flexbox</a></li>
+                <li><a class="nav-link" href="#css_grid">CSS grid</a></li>
+            </ul>
+        </nav>
+
+        <main id="main-doc">
+
+            <header id="title"><h1>HTML Document Layouts</h1></header>
+            <section id="introduction" class="main-section">
+                <header><h2>Introduction</h2></header>
+                <p>There are five ways to create multi-sectional layouts:</p>
+                <code></code>
+                <ol>
+                    <li>HTML tables</li>
+                    <li>CSS frameworks</li>
+                    <li>CSS float property</li>
+                    <li>CSS flexbox</li>
+                    <li>CSS grid</li>
+                </ol>
+                <p>Tables are not recommended. The purpose of <code>&lttable&gt</code> is to display tabular data.</p>
+                <hr>
+            </section>
+            
+            <section id="css_frameworks" class="main-section">
+                <header><h2>CSS frameworks</h2></header>
+                <p>CSS frameworks provide a basic structure for designing consistent solutions to tackle common issues across front-end web development. They provide generic functionality which can be overridden for specific scenarios and applications. This greatly decreases the time needed to start creating applications and websites.</p>
+                <p>The packages usually consist of HTML, CSS, and JavaScript files and provide a grid, browser incompatibility solutions, responsive media queries, uniform styling across tooltips, buttons, forms etc, and a consistent set of fonts and icons. </p>
+                <p>Popular frameworks include:</p>
+                <ul>
+                    <li>Bootstrap</li>
+                    <li>Foundation</li>
+                    <li>Materialize</li>
+                    <li>Pure</li>
+                    <li>UIKit</li>
+                </ul>
+                <hr>
+            </section>
+            
+            <section id="css_float" class="main-section">
+                <header><h2>CSS float</h2></header>
+                <p>It is common to do entire web layouts using the float property. Float is easy to learn - you just need to remember how the float and clear properties work. But floating elements are tied to the document flow which can reduce flexibility.</p>
+                <p>The float property specifies how an element should float. It can have one of four vales: left, right, none, or inherit. The default is none. At its simplest, float can be used to wrap text around images.</p>
+            <code><pre>
+            img { float: right; }
+            </pre></code>
+                <p>The clear property specifies what elements can float beside the cleared element and on which side. It can have five possible values: none, left, right, both, inherit. The most common way to use the clear property is after you have used a float property on an element. When clearing floats, you should match the clear to the float: If an element is floated to the left, then you should clear to the left. Your floated element will continue to float, but the cleared element will appear below it on the web page.</p>
+            <code><pre>
+            div { clear: left; }
+            </pre></code>
+                <p>If an element is taller than the element containing it, and it is floated, it will "overflow" outside of its container. To fix this you can use <code>overflow: auto;</code> in the containing element. This works well if you have control over the padding and margins. But a safer version to use is:</p>
+            <code><pre>
+            .clearfix::after {
+                content: "";
+                clear: both;
+                display: table;
+            }</pre></code>
+                <hr>
+            </section>
+            
+            <section id="css_flexbox" class="main-section">
+                <header><h2>CSS flexbox</h2></header>
+                <p>CSS3 introduced Flexible Boxes, or flexbox, to create page layouts for a dynamic UI. It is a layout mode that arranges elements in a predictable way for different screen sizes and browsers. All popular modern browsers support flexbox. Adding 
+                <code>display: flex;</code> turns an element into a flex container. Then to align children of that element into rows or columns use <code>flex-direction</code>. Possible values of <code>flex-direction</code> are <code>row, column, row-reverse, column-reverse</code>. The default value is <code>row</code>.</p>
+                <p>Items in a flex-box can be horixontally aligned using <code>justify-content</code>. Possible values are <code>flex-start, flex-end, center, space-between,</code> and <code>space-around</code>. Items can be vertically aligned using <code>align-items</code>. Values include <code>flex-start, flex-end, center, stretch,</code> and <code>baseline</code>.</p>
+                <hr>
+            </section>
+            
+            <section id="css_grid" class="main-section">
+                <header><h2>CSS grid</h2></header>
+                <p>CSS Grid helps you easily build complex web designs. It works by turning an HTML element into a grid container with rows and columns within which you place child elements. Turn any HTML element into a grid container with <code>display: grid;</code>. To define the structure of the grid add columns with <code>grid-template-columns</code> and rows with <code>grid-template-rows</code></p>
+            <code><pre>
+            grid-template-rows: 50px 50px 50px;
+            grid-template-columns: 25% 25% 50%;
+            </pre></code>
+                <p>Each parameter represents a row or column and defines its width (or height). You can use px, em, %, fr, or auto. fr sets the width to a fraction of the available space and auto sets it to the size of its content. If you have several parameters with the same value you can use the <code>repeat</code> function: <code>grid-template-rows: repeat(3, 50px);</code> which creats 3 rows each of 50px.</p>
+                <p>You can create gaps between the rows and columns using <code>grid_row-gap</code> and <code>grid-column-gap</code> or the shorthand <code>grid-gap</code> where the first parameter is the row gap and the second the column gap. If only one parameter is given it will create gaps between all rows and columns.</p>
+                <p>You can set items in the grid to span more than one row or column using <code>grid-row: 2/3;</code> and <code>grid-column: 1/4;</code> This would create an area for the item covering rows 2 and columns 1 to 3. The numbers represent the edges of the grid squares, not the squares themselves. A shortcut for this is using <code>grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at;</code> which in the above example would be <code>grid-area: 2/1/3/4;</code>.</p>
+                <p>You can align items horizontally and vertically using <code>justify-self</code> and <code>align-self</code> or align all items using <code>justify-items</code> and <code>align-items</code>. Possible values are <code>start, end,</code> and <code>center</code>.
+                <p>You can create grids within grids.</p>
+                <hr>
+            </section>
+        </main>
+    </body>
