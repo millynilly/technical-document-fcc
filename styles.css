@@ -89,7 +89,7 @@ section { padding-top: 20px; }
 }
 
 /*Notes to self.
-When navigating to a section, the section title is hidden behind the navbar. Used top padding on
+1. When navigating to a section, the section title is hidden behind the navbar. Used top padding on
 sections to fix, but is there a better way?
-Used <pre> for tabbing code sections because using position: relative results in code sections
+2. Used <pre> for tabbing code sections because using position: relative results in code sections
 showing under the navbar.
